@@ -10,12 +10,13 @@ public class MainPage extends Utility{
         clickElementWithWait(mainPageElements.cookie);
     }
 
-    public void navigateLoginPage(){
+    public void navigateToLoginPage() {
         clickElementWithWait(mainPageElements.loginLink);
     }
-    public void searchProduct(){
-        clickElementWithWait(mainPageElements.loginLink);
-        sendKeyToElement(mainPageElements.searchBox , "Çadır");
-        clickElementWithWait(mainPageElements.loginLink);
+
+    public void searchProduct() {
+        clickElementWithWait(mainPageElements.searchBox);
+        sendKeyToElement(mainPageElements.searchBox,"Çadır");
+        clickElementWithWait(mainPageElements.searchBoxButton);
     }
 }

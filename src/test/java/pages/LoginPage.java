@@ -10,13 +10,8 @@ public class LoginPage extends Utility {
     MainPageElements mainPageElements = new MainPageElements();
 
     public String loginProcess() {
-        navigateToLoginPage();
         performLogin();
         return getLoginVerificationTexts();
-    }
-
-    private void navigateToLoginPage() {
-        clickElementWithWait(mainPageElements.loginLink);
     }
 
     private void performLogin() {
@@ -28,7 +23,7 @@ public class LoginPage extends Utility {
     }
 
     public String getLoginVerificationTexts() {
-        waits(500);
+        waits(1000);
         return getTextElement(mainPageElements.loginLink);
     }
 }
