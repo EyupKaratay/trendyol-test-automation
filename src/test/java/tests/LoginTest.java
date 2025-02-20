@@ -7,7 +7,7 @@ import utility.ConfigReader;
 
 public class LoginTest extends BaseTest {
 
-    @Test
+    @Test(priority = 1 , groups = {"smoke","regression"})
     public void LoginTest(){
         String webSiteUrl = ConfigReader.getProperty("url");
         getAppLibrary().getFlowsLibrary().navigateToUrl(webSiteUrl);

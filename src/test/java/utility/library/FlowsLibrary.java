@@ -12,6 +12,16 @@ public class FlowsLibrary {
         this.driver = Driver.getDriver();
     }
 
+    public void switchToNewTab() {
+        String originalHandle = driver.getWindowHandle();
+        for (String handle : driver.getWindowHandles()) {
+            if (!handle.equals(originalHandle)) {
+                driver.switchTo().window(handle);
+                break;
+            }
+        }
+    }
+
     public void navigateToUrl(String url) {
         driver.get(url);
     }
@@ -50,16 +60,6 @@ public class FlowsLibrary {
 
     public void closeCurrentTab() {
         driver.close();
-    }
-
-    public void switchToNewTab() {
-        String originalHandle = driver.getWindowHandle();
-        for (String handle : driver.getWindowHandles()) {
-            if (!handle.equals(originalHandle)) {
-                driver.switchTo().window(handle);
-                break;
-            }
-        }
     }
 
     public void setWindowSize(int width, int height) {
