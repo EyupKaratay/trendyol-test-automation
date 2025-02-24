@@ -7,41 +7,41 @@ import utility.Driver;
 
 public class ProductListPageElements {
 
-    public ProductListPageElements(){
+    public ProductListPageElements() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
     @FindBy(css = "div#search-app h1")
     public WebElement productMainTitle;
 
-    @FindBy(css = "#sticky-aggregations > div > div:nth-child(3) > div.fltrs > div > div > div:nth-child(2) > div > a > div.chckbox")
-    public WebElement brandFilter;
+    @FindBy(xpath="(//div[@class='chckbox'])[1]")
+    public WebElement brandButton;
 
-    @FindBy(css = "#sticky-aggregations > div > div:nth-child(5) > div.fltr-cntnr-ttl-area > div.fltr-cntnr-ttl")
-    public WebElement capacity;
+    @FindBy(xpath="(//div[@class='fltr-cntnr-ttl'])[4]")
+    public WebElement genderButton;
 
-    @FindBy(css = "div#sticky-aggregations div:nth-child(5) > div.fltrs > div > div > div:nth-child(2) > div > a > div.chckbox")
-    public WebElement capacityFilter;
+    @FindBy(xpath="((//div[@class='fltrs'])[4]//div[@class='chckbox'])[2]")
+    public WebElement maleGenderButton;
 
-    @FindBy(css = "div#sticky-aggregations div:nth-child(6) > div.fltr-cntnr-ttl-area > div.fltr-cntnr-ttl")
-    public WebElement priceFilter;
-
-    @FindBy(css = "div#sticky-aggregations input.fltr-srch-prc-rng-input.min")
-    public WebElement minPrice;
-
-    @FindBy(css = "div#sticky-aggregations input.fltr-srch-prc-rng-input.max")
-    public WebElement maxPrice;
-
-    @FindBy(css = "div#sticky-aggregations button")
+    @FindBy(xpath="(//div[@class='fltr-cntnr-ttl'])[6]")
     public WebElement priceButton;
 
-    @FindBy(xpath = "(// span[@class='prdct-desc-cntnr-ttl'])[12]")
+    @FindBy(css="[class='fltr-srch-prc-rng-input min']")
+    public WebElement minPrice;
+
+    @FindBy(css="[class='fltr-srch-prc-rng-input max']")
+    public WebElement maxPrice;
+
+    @FindBy(css="[class='fltr-srch-prc-rng-srch']")
+    public WebElement priceSearchButton;
+
+    @FindBy(xpath="(//span[@class='prdct-desc-cntnr-ttl'])[6]")
     public WebElement productBrandAfterFiltering;
 
-    @FindBy(xpath = "(// span[@class='prdct-desc-cntnr-name hasRatings'])[10]")
+    @FindBy(xpath="((//h3[@class='prdct-desc-cntnr-ttl-w'])[6]//span)[2]")
     public WebElement productModelAfterFiltering;
 
-    @FindBy(xpath = "(// div[@class='product-desc-sub-text'])[9]")
+    @FindBy(xpath="(//div[@class='product-desc-sub-container'])[6]//div")
     public WebElement productCategoryAfterFiltering;
 
 }

@@ -1,15 +1,16 @@
 package tests;
 
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.ITestResult;
+import org.testng.annotations.*;
 import utility.Driver;
+import utility.TestRailManager;
 import utility.library.AppLibrary;
+
 import java.time.Duration;
 
 public class BaseTest {
-    protected WebDriver driver;
-    private static AppLibrary appLibrary;
+    AppLibrary appLibrary;
+    protected String testCaseId;
 
     @BeforeClass(alwaysRun = true)
     public void setUp() {
@@ -23,7 +24,16 @@ public class BaseTest {
         Driver.closeDriver();
     }
 
-    public static AppLibrary getAppLibrary() {
+    public AppLibrary getAppLibrary() {
         return appLibrary;
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void addResultsToTestRail(ITestResult result){
+        if(result.getStatus() == ITestResult.SUCCESS){
+            TestRailManager.addResultsForTestCase(testCaseId, "PASSED : " + result.getName() + " ", TestRailManager.testCasePassStatus);
+        }else if(result.getStatus() == ITestResult.FAILURE) {
+            TestRailManager.addResultsForTestCase(testCaseId, "FAILED : " + result.getName() + " ", TestRailManager.testCaseFailStatus);
+        }
     }
 }

@@ -18,4 +18,7 @@ public class LoginPageElements {
 
     @FindBy(css = "div#login-register button[type=\"submit\"] > span")
     public WebElement loginButton;
+
+    @FindBy(className = "message")
+    public WebElement errorMessage;
 }

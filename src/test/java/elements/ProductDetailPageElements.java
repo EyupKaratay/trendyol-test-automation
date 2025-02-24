@@ -7,17 +7,23 @@ import utility.Driver;
 
 public class ProductDetailPageElements {
 
-    public ProductDetailPageElements(){
+    public ProductDetailPageElements() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath="//a[@class='product-brand-name-with-link']")
-    public WebElement productDetailBrand;
-
-    @FindBy(css="h1[class='pr-new-br']>span")
-    public WebElement productDetailModel;
-
     @FindBy(xpath="//aside//button[contains(text(), 'Anladım')]")
     public WebElement popup;
+
+    @FindBy(css="[class='product-brand-name-with-link']")
+    public WebElement productDetailBrand;
+
+    @FindBy(css="h1[class='pr-new-br'] > span")
+    public WebElement productDetailModel;
+
+    @FindBy(css="[class='add-to-basket-button-text']")
+    public WebElement addToCartButton;
+
+    @FindBy(css="[class='basket-item-count-container visible']")
+    public WebElement numberOfProducts;
 
 }
