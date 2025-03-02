@@ -56,9 +56,9 @@ public class ScreenshotSendEmail extends Utility{
         HtmlEmail email = new HtmlEmail();
         email.setHostName("smtp.gmail.com");
         email.setSmtpPort(465);
-        email.setAuthenticator(new DefaultAuthenticator("youremail", "emailcode"));
+        email.setAuthenticator(new DefaultAuthenticator(ConfigReader.getProperty("your_email"), ConfigReader.getProperty("app_passwords")));
         email.setSSLOnConnect(true);
-        email.setFrom("youremail", "Test Automation");
+        email.setFrom(ConfigReader.getProperty("your_email"), "Test Automation");
         email.setSubject("Selenium Test Raporu");
         email.setMsg("Test basarisiz oldu. Ekteki ekran görüntüsüne bakabilirsiniz.");
 
@@ -69,7 +69,7 @@ public class ScreenshotSendEmail extends Utility{
         attachment.setName(screenshotFile.getName());
         email.attach(attachment);
 
-        email.addTo("sendemail");
+        email.addTo(ConfigReader.getProperty("send_email"));
         email.send();
     }
 }

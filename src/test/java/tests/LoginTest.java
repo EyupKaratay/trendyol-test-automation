@@ -6,7 +6,7 @@ import utility.ConfigReader;
 
 public class LoginTest extends BaseTest {
 
-    @Test(priority = 1, groups = {"smoke","regression"})
+    @Test(priority = 1, groups = {"smoke","regression"} , description = "Login with only email.")
     public void loginEmailOnly() {
         testCaseId ="3";
         String webSiteUrl = ConfigReader.getProperty("url");
@@ -21,7 +21,7 @@ public class LoginTest extends BaseTest {
         getAppLibrary().getFlowsLibrary().refreshPage();
     }
 
-    @Test(priority = 2, groups = {"smoke","regression"})
+    @Test(priority = 2, groups = {"smoke","regression"} , description = "Login with only password.")
     public void loginPasswordOnly() {
         testCaseId ="4";
         getAppLibrary().getPageLibrary().getLoginPage().fillPassword();
@@ -33,7 +33,7 @@ public class LoginTest extends BaseTest {
         getAppLibrary().getFlowsLibrary().refreshPage();
     }
 
-    @Test(priority = 3, groups = {"smoke","regression"})
+    @Test(priority = 3, groups = {"smoke","regression"} , description = "Login with both incorrect username and password.")
     public void loginInvalid() {
         testCaseId ="5";
         getAppLibrary().getPageLibrary().getLoginPage().wrongEmailOrPassword();
@@ -45,7 +45,7 @@ public class LoginTest extends BaseTest {
         getAppLibrary().getFlowsLibrary().refreshPage();
     }
 
-    @Test(priority = 4, groups = {"smoke","regression"})
+    @Test(priority = 4, groups = {"smoke","regression"} , description = "Login with correct email and password.")
     public void successfulLoginTest() {
         testCaseId ="6";
         String actualResult = getAppLibrary().getPageLibrary().getLoginPage().loginProcess();
