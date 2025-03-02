@@ -14,6 +14,9 @@ public class Driver {
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--disable-notifications");
+
+            options.addArguments("--headless");
+            
             driver = new ChromeDriver(options);
         }
         return driver;
